@@ -10,8 +10,8 @@ const App = () => {
   const { theme } = useTheme();
   const [employees, setEmployees] = useState([]);
   const [editingEmployee, setEditingEmployee] = useState(null);
-  const API_URL = 'http://localhost:5000/employees';
-  //const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
+  //const API_URL = 'http://localhost:5000/employees';
+  const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
 
   
 

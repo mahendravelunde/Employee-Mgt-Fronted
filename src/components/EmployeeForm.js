@@ -10,8 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 const EmployeeForm = ({ onSuccess, initialData, onCancelEdit }) => {
   const [photoPreview, setPhotoPreview] = useState(null);
   const [photoFile, setPhotoFile] = useState(null);
-   const API_URL = 'http://localhost:5000/employees';
-  //const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
+   //const API_URL = 'http://localhost:5000/employees';
+  const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
 
   // ✅ Validation schema
   const validationSchema = Yup.object({

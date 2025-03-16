@@ -3,8 +3,8 @@ import axios from 'axios';
 import EmployeeItem from './EmployeeItem';
 
 const EmployeeList = ({ employees, onEdit, onDelete }) => {
-   const API_URL = 'http://localhost:5000/employees';
-  //const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
+   //const API_URL = 'http://localhost:5000/employees';
+  const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
 
   // ✅ Handle delete
   const handleDelete = async (id) => {
