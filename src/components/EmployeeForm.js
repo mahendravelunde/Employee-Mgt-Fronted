@@ -4,11 +4,14 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import FileUpload from './FileUpload';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const EmployeeForm = ({ onSuccess, initialData, onCancelEdit }) => {
   const [photoPreview, setPhotoPreview] = useState(null);
   const [photoFile, setPhotoFile] = useState(null);
-  const API_URL = 'http://localhost:5000/employees';
+   const API_URL = 'http://localhost:5000/employees';
+  //const API_URL = `${process.env.REACT_APP_API_URL}/employees`;
 
   // ✅ Validation schema
   const validationSchema = Yup.object({
@@ -63,6 +66,7 @@ const EmployeeForm = ({ onSuccess, initialData, onCancelEdit }) => {
         onSuccess(); // ✅ Refresh employees list
         onCancelEdit(); // ✅ Clear editing mode
       } catch (error) {
+        toast.error(error?.response?.data?.error);
         console.error('Error submitting form:', error);
       }
     },
@@ -131,6 +135,7 @@ const EmployeeForm = ({ onSuccess, initialData, onCancelEdit }) => {
           {initialData ? 'Update' : 'Add'} Employee
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
